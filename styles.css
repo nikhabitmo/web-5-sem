@@ -1,10 +1,103 @@
 body {
     font-family: Arial, sans-serif;
+    font-size: 16px;
     line-height: 1.6;
-    background-color: #f9f9f9;
     color: #333;
+    background-color: #f9f9f9;
     margin: 0;
     padding: 0;
+}
+
+h1, h2 {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #0074D9;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #333;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.8;
+    color: #666;
+    text-align: justify;
+    margin: 0;
+    padding: 0;
+}
+
+blockquote {
+    font-size: 1.2em;
+    line-height: 1.6;
+    font-style: italic;
+    color: #555;
+    background-color: #f9f9f9;
+    border-left: 5px solid #0074D9;
+    padding: 10px 20px;
+    margin: 20px 0;
+}
+
+a {
+    color: #0074D9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+pre {
+    background: #f4f4f4;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333;
+    font-size: 0.9em;
+    overflow-x: auto;
+    text-align: left;
+}
+
+.article__text {
+    text-decoration: none;
+}
+
+.article__text strong {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #0074D9;
+}
+
+.article__text del {
+    text-decoration: line-through;
+    color: #d9534f;
+}
+
+.article__text ins {
+    text-decoration: none;
+    font-weight: bold;
+    color: #5cb85c;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
 }
 
 .header {
@@ -52,7 +145,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Article */
 .article {
     background: #fff;
     border: 1px solid #ddd;
@@ -68,19 +160,6 @@ body {
     margin-bottom: 10px;
 }
 
-.article__text {
-    color: #666;
-}
-
-.article__ascii, .article__code {
-    background: #f4f4f4;
-    padding: 15px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-/* Footer */
 .footer {
     background: #0074D9;
     color: #fff;
