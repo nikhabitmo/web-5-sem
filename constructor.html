@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru-ru">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="scripts/constructor.js"></script>
+  <script src="scripts/script.js" defer></script>
+  <title>Suggest post</title>
+</head>
+<body>
+<header class="header">
+  <img class="header__logo" src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+       alt="Blog Logo">
+  <nav class="header__nav">
+    <ul class="nav__list">
+      <li class="nav__item"><a class="nav__link" href="index.html">Home</a></li>
+      <li class="nav__item"><a class="nav__link" href="about.html">About Me</a></li>
+      <li class="nav__item"><a class="nav__link" href="contacts.html">Contacts</a></li>
+      <li class="nav__item"><a class="nav__link" href="constructor.html">Create post</a></li>
+    </ul>
+  </nav>
+</header>
+<main class="main">
+  <div class="main__content">
+    <section class="form-section">
+      <h2 style="margin-top: 0;">Suggest idea for post</h2>
+      <form id="postForm">
+        <label for="postText">Enter your text here:</label>
+        <textarea id="postText" class="form__textarea" required></textarea>
+        <button type="submit" class="form__button">Add Post</button>
+      </form>
+    </section>
+    <section class="posts" id="postContainer">
+      <h2>Posts</h2>
+    </section>
+  </div>
+</main>
+<footer class="footer">
+  <p class="footer__text">© 2025 The Best Quotes Blog. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
