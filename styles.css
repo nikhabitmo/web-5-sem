@@ -41,8 +41,15 @@ body {
 }
 
 .main {
+    display: flex; /* Если нужно использовать flex, чтобы управлять дочерними элементами */
+    flex-direction: column; /* Расположение элементов вертикально */
+    margin: 20px auto; /* Добавляем отступы сверху и снизу */
+    max-width: 1200px; /* Устанавливаем ширину для ограничения контента */
+    width: 100%; /* Заполняем доступное пространство */
     padding: 120px 20px 20px;
+    box-sizing: border-box; /* Включаем padding в расчёт ширины */
 }
+
 
 .main__title {
     text-align: center;
@@ -179,3 +186,57 @@ body {
     color: red;
     text-align: center;
 }
+
+.gallery {
+    margin-bottom: 40px;
+}
+
+.swiper-container {
+    position: relative;
+    width: 60%;
+    height: 400px;
+}
+
+.swiper-container {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.swiper-button-next {
+    right: 10px;
+}
+
+.swiper-button-prev {
+    left: 10px;
+}
+
