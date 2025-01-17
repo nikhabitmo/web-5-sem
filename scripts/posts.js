@@ -1,40 +1,45 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     const postsSection = document.querySelector(".posts");
     const preloader = document.createElement("div");
     preloader.className = "preloader";
     preloader.innerHTML = "<p>Loading...</p>";
     postsSection.appendChild(preloader);
-    Promise.all([fetchRandomPost(postsSection), fetchRandomPost(postsSection)])
-        .finally(() => preloader.style.display = "none");
+
+    try {
+        await Promise.all([fetchRandomPost(postsSection), fetchRandomPost(postsSection)]);
+    } catch (error) {
+        console.error("There was a problem loading posts:", error);
+    } finally {
+        preloader.style.display = "none";
+    }
 });
 
 function getRandomPostId() {
     return Math.floor(Math.random() * 100) + 1;
 }
 
-function fetchRandomPost(postsSection) {
+async function fetchRandomPost(postsSection) {
     const randomPostId = getRandomPostId();
-    return fetch(`https://jsonplaceholder.typicode.com/posts/${randomPostId}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response.json();
-        })
-        .then(data => {
-            const article = document.createElement("article");
-            article.className = "article";
-            article.innerHTML = `
-                <h2 class="article__title">${data.title}</h2>
-                <p class="article__content">${data.body}</p>
-            `;
-            postsSection.appendChild(article);
-        })
-        .catch(error => {
-            const errorMessage = document.createElement("p");
-            errorMessage.className = "error";
-            errorMessage.innerHTML = "Something went wrong";
-            postsSection.appendChild(errorMessage);
-            console.error("There was a problem with the fetch operation:", error);
-        });
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${randomPostId}`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch post with ID ${randomPostId}`);
+        }
+
+        const data = await response.json();
+
+        const article = document.createElement("article");
+        article.className = "article";
+        article.innerHTML = `
+            <h2 class="article__title">${data.title}</h2>
+            <p class="article__content">${data.body}</p>
+        `;
+        postsSection.appendChild(article);
+    } catch (error) {
+        const errorMessage = document.createElement("p");
+        errorMessage.className = "error";
+        errorMessage.innerHTML = "Something went wrong";
+        postsSection.appendChild(errorMessage);
+        console.error("Error fetching post:", error);
+    }
 }
